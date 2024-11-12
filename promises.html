@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promises Example</title>
+</head>
+<body>
+  <h1>Promises Example</h1>
+  <button onclick="startProcess()">Start Process</button>
+
+  <script>
+    // Helper function to simulate async steps with a delay
+    function performStep(stepMessage) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          console.log(stepMessage);
+          resolve();
+        }, 1000);
+      });
+    }
+
+    // Function to execute the steps in sequence
+    function startProcess() {
+      console.log("Step 1: Starting process...");
+      performStep("Step 2: Processing data...")
+        .then(() => performStep("Step 3: Validating data..."))
+        .then(() => performStep("Step 4: Saving data..."))
+        .then(() => performStep("Step 5: Process completed!"))
+        .catch((error) => console.error("Error:", error));
+    }
+  </script>
+</body>
+</html>

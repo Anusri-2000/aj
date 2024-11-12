@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Callback Hell Example</title>
+</head>
+<body>
+  <h1>Callback Hell Example</h1>
+  <button onclick="startProcess()">Start Process</button>
+
+  <script>
+    function startProcess() {
+      console.log("Step 1: Starting process...");
+      setTimeout(function() {
+        console.log("Step 2: Processing data...");
+        setTimeout(function() {
+          console.log("Step 3: Validating data...");
+          setTimeout(function() {
+            console.log("Step 4: Saving data...");
+            setTimeout(function() {
+              console.log("Step 5: Process completed!");
+            }, 1000);
+          }, 1000);
+        }, 1000);
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
